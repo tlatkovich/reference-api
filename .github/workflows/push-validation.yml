@@ -2,8 +2,9 @@ name: Push Validation
 
 on:
   push:
-    branches:
-      - '**'
+    branches-ignore:
+      - 'main'
+      - 'v*'
     paths:
       - 'src/**'
       - 'tests/**'
