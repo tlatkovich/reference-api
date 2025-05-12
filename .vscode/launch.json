@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Aspire",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build:AppHost",
+            "program": "${workspaceFolder}/src/Aspire.AppHost/bin/Debug/net9.0/Aspire.AppHost.dll",
+            "cwd": "${workspaceFolder}/src/Aspire.AppHost"
+        },
+        {
+            "name": "Attach to Aspire Process",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "name": "Reference API (Windows)",
+    "image": "mcr.microsoft.com/devcontainers/dotnet:9.0-bookworm",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/powershell:1": {},
+        "ghcr.io/devcontainers/features/azure-cli:1": {}
+    },
+    "onCreateCommand": "sudo dotnet workload update && sudo dotnet workload install aspire && dotnet tool install --global dotnet-ef && sudo dotnet workload list && sudo dotnet new install Aspire.ProjectTemplates::9.2.0 --force",
+    "postCreateCommand": "dotnet restore && docker pull mcr.microsoft.com/mssql/server:2022-latest",
+    "postStartCommand": "dotnet dev-certs https --trust",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.azure-dev",
+                "ms-azuretools.vscode-bicep",
+                "ms-azuretools.vscode-containers",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.csharp",
+                "ms-mssql.mssql",
+                "ms-vscode.azurecli",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.vscode-github-actions",
+                "DotJoshJohnson.xml",
+                "EditorConfig.EditorConfig"
+            ]
+        }
+    }
+}

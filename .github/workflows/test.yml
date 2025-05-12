@@ -1,0 +1,41 @@
+name: Execute Tests
+
+on:
+  workflow_dispatch: # manual trigger
+
+jobs:
+  build:
+    name: build-and-test
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.x
+
+    - name: Display dotnet information
+      run: |
+        dotnet --version
+        dotnet --info
+        dotnet --list-sdks
+        dotnet --list-runtimes
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore
+
+    - name: Run Core Tests
+      run: dotnet test ./tests/Equipment.CoreTests/Equipment.CoreTests.csproj --no-build --verbosity detailed
+
+    - name: Run Infrastructure Tests
+      run: dotnet test ./tests/Equipment.InfrastructureTests/Equipment.InfrastructureTests.csproj --no-build --verbosity detailed
+
+    - name: Run Architecture Tests
+      run: dotnet test ./tests/Equipment.ArchitectureTests/Equipment.ArchitectureTests.csproj --no-build --verbosity detailed
