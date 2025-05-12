@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UserSecretsId>34c17021-e66b-420b-8416-0a6f2329c275</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Equipment.Core\Equipment.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Ardalis.GuardClauses" Version="5.0.0" />
+        <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="9.0.1" />
+        <PackageReference Include="Azure.Identity" Version="1.13.2" />
+        <PackageReference Include="MediatR" Version="12.5.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+        <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.6.1" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Caching.Hybrid" Version="9.3.0" />
+        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.2" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.3" />
+        <PackageReference Include="Microsoft.Identity.Web" Version="3.8.4" />
+    </ItemGroup>
+
+</Project>

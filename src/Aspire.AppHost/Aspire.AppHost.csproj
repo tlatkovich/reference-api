@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.2.0" />
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UserSecretsId>84ebb345-ce93-431e-8bc0-c5c998396e53</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Equipment.Api\Equipment.Api.csproj" />
+        <ProjectReference Include="..\Equipment.MigrationService\Equipment.MigrationService.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.1" />
+        <PackageReference Include="Aspire.Hosting.Redis" Version="9.2.1" />
+        <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.2.1" />
+    </ItemGroup>
+
+</Project>
