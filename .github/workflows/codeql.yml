@@ -2,9 +2,9 @@ name: Scan Code with CodeQL
 
 on:
     push:
-      branches-ignore:
-        - 'main'
-        - 'v*'
+      branches:
+        - "main"
+        - "v*"
 
     pull_request:
       branches:
