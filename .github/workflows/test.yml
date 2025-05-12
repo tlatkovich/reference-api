@@ -1,41 +1,108 @@
-name: Execute Tests
+name: Run Tests
 
 on:
-  workflow_dispatch: # manual trigger
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: 9.x
 
 jobs:
   build:
-    name: build-and-test
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.x
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: Display dotnet information
-      run: |
-        dotnet --version
-        dotnet --info
-        dotnet --list-sdks
-        dotnet --list-runtimes
+      - name: Display dotnet information
+        run: |
+          dotnet --version
+          dotnet --info
+          dotnet --list-sdks
+          dotnet --list-runtimes
 
-    - name: Restore dependencies
-      run: dotnet restore
+      - name: Restore dependencies
+        run: dotnet restore
 
-    - name: Build
-      run: dotnet build --no-restore
+      - name: Build
+        run: dotnet build --no-restore --output ./build_output
 
-    - name: Run Core Tests
-      run: dotnet test ./tests/Equipment.CoreTests/Equipment.CoreTests.csproj --no-build --verbosity detailed
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: build_output
+          path: ./build_output
 
-    - name: Run Infrastructure Tests
-      run: dotnet test ./tests/Equipment.InfrastructureTests/Equipment.InfrastructureTests.csproj --no-build --verbosity detailed
+  core-tests:
+    runs-on: ubuntu-latest
 
-    - name: Run Architecture Tests
-      run: dotnet test ./tests/Equipment.ArchitectureTests/Equipment.ArchitectureTests.csproj --no-build --verbosity detailed
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: build_output
+          path: ./build_output
+
+      - name: Run Core Tests
+        run: dotnet test ./tests/Equipment.CoreTests/Equipment.CoreTests.csproj --no-build --verbosity detailed
+
+  infrastructure-tests:
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: build_output
+          path: ./build_output
+
+      - name: Run Infrastructure Tests
+        run: dotnet test ./tests/Equipment.InfrastructureTests/Equipment.InfrastructureTests.csproj --no-build --verbosity detailed
+
+  architecture-tests:
+    runs-on: ubuntu-latest
+
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: build_output
+          path: ./build_output
+
+      - name: Run Architecture Tests
+        run: dotnet test ./tests/Equipment.ArchitectureTests/Equipment.ArchitectureTests.csproj --no-build --verbosity detailed
