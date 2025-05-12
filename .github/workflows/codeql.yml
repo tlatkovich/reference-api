@@ -16,10 +16,11 @@ on:
 
     workflow_dispatch: # manual trigger
 
-jobs:
-  analyze:
-    name: Analyze
+env:
+  DOTNET_VERSION: 9.x
 
+jobs:
+  analyze-code:
     runs-on: ubuntu-latest
 
     permissions:
@@ -39,12 +40,13 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: ${{ matrix.language }}
+          queries: +security-extended
+          languages: ${{ matrix.language }}
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.x
+        dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Restore dependencies
       run: dotnet restore
