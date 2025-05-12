@@ -12,10 +12,12 @@ public class SqlServerFixture : IAsyncLifetime
 
     public SqlServerFixture()
     {
+#pragma warning disable S1075 // Suppress hardcoded password warning for testing purposes
         _sqlContainer = new MsSqlBuilder()
             .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
             .WithPassword("yourStrong(!)Password")
             .Build();
+#pragma warning restore S1075
     }
 
     public async Task InitializeAsync()
