@@ -3,8 +3,10 @@ name: Scan Code with CodeQL
 on:
     push:
       branches:
-        - "main"
-        - "v*"
+        - '**'
+      branches-ignore:
+        - 'main'
+        - 'v*'
 
     pull_request:
       branches:
