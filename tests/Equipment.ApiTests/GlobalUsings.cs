@@ -1,0 +1,12 @@
+global using Ardalis.HttpClientTestExtensions;
+global using MediatR;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Mvc.Testing;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Caching.Hybrid;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using System.Net.Http.Headers;
+global using Moq;
+global using Shouldly;
+global using Testcontainers.MsSql;
