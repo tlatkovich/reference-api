@@ -1,7 +1,7 @@
 
 using Equipment.Core.Domain.EquipmentAggregate.Events;
 
-namespace Equipment.Infrastructure.Messaging.Handlers;
+namespace Equipment.Infrastructure.Messaging.NotificationHandlers;
 
 public class EquipmenterialNumberChangedEventHandler : INotificationHandler<EquipmenterialNumberChangedEvent>
 {

@@ -14,7 +14,6 @@ global using Microsoft.EntityFrameworkCore.Metadata;
 global using Microsoft.Extensions.Caching.Hybrid;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
-global using Microsoft.Extensions.Logging;
 global using Microsoft.Identity.Web;
 global using System.IdentityModel.Tokens.Jwt;
 global using System.Security.Claims;
