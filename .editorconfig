@@ -6,19 +6,22 @@ root = true
 charset = utf-8
 end_of_line = lf
 insert_final_newline = true
+indent_style = space
 trim_trailing_whitespace = true
 
 # YAML files (.yml and .yaml)
 [*.{yml,yaml}]
-indent_style = space
 indent_size = 2
 
 # XML and related files (.xml, .xsd, .xslt, .wsdl)
 [*.{xml,xsd,xslt,wsdl}]
-indent_style = space
 indent_size = 2
 
 # JSON files (.json and .jsonc)
 [*.{json,jsonc}]
-indent_style = space
 indent_size = 4
+
+[*.md]
+indent_size = 2
+trim_trailing_whitespace = false
+max_line_length = off

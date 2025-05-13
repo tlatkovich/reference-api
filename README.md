@@ -6,44 +6,65 @@ A Web API solution for reference.
 
 ## Architecture Principles & Practices
 
-- Clean Architecture: Enforced by architecture tests to ensure proper separation between Domain, Infrastructure, and API layers.
-- Domain-Driven Design (DDD): Domain logic is isolated in the Core project.
-- Layered Solution Structure: Projects for API, Core, Infrastructure, Migration, and Service Defaults.
-- Asynchronous Programming: Async/await, Task-based APIs, and cancellation support.
-- Immutability: Use of record structs for immutable data models.
-- Global Usings: Simplifies and reduces using statements.
-- File-Scoped Namespaces: Cleaner code structure.
-- Extended Property Patterns: For concise property matching.
-- Interpolated String Handlers: For efficient string interpolation.
-- Exception Handling: Try-catch with meaningful context, custom exceptions as needed.
-- Caching: Hybrid and Redis caching for performance.
-- Security: Input validation and JWT authentication.
-- XML Documentation: Public APIs and methods are documented.
-- Testing: xUnit, Shouldly, Moq, and architecture tests (NetArchTest.Rules).
-- OpenTelemetry: Distributed tracing and metrics.
+- Clean Architecture: Ensures all dependencies point inward toward the Domain layer, maintaining clear separation from Infrastructure and API layers through separate projects and architecture tests.
+- Domain-Driven Design (DDD): Isolates domain logic within the Core project and emphasizes the use of AggregateRoot entities to encapsulate domain behavior and enforce invariants within a consistent boundary.
+- Request-Endpoint-Response Pattern (REPR): Structures each API endpoint with a request, endpoint, and response component.
+- Vertical Slice Architecture: Encapsulates each API endpoint in its own folder, containing all related files (request, endpoint, validation, mapping, response).
+- .NET Aspire: Enables running and connecting multi-project applications, container resources, and dependencies for local development.
+- Development Containers: Provides a fully featured, pre-configured Docker environment for .NET/SQL development.
+- Asynchronous Programming: Utilizes async/await, Task-based APIs, and supports cancellation.
+- Immutability: Implements record structs for immutable data transfer objects (DTOs).
+- Global Usings: Reduces and simplifies using statements.
+- File-Scoped Namespaces: Promotes a cleaner code structure.
+- Value Objects: Encapsulates domain data without identity or behavior.
+- Guards Clauses: Validates method parameters and properties.
+- Specification Pattern: Implements the repository pattern with specifications for querying data.
+- Caching: Combines in-memory and Redis caching for optimal performance.
+- Eventing and Messaging: Employs MediatR for domain and integration events.
+- Security: Ensures input validation and JWT authentication.
+- Testing: Automates testing for domain, infrastructure, and API layers as well as architecture principles.
+- OpenTelemetry: Provides distributed tracing and metrics.
+- API Documentation: Utilizes OpenAPI for automatic generation of API documentation.
+- GitHub Copilot: Implements instructional comments for code generation.
+- GitHub Advanced Security: Implements CodeQL for static code analysis and dependabot for security vulnerability detection.
+- GitHub Actions: Automates CI/CD processes, including build, test, and deployment.
+- EditorConfig: Maintain consistent coding styles across various editors and IDEs.
 
-## Technologies & Libraries Used
+## Notable Technologies & Libraries Used
 
-- **.NET 9** (net9.0)
-- **ASP.NET Core** (Web API)
-- **FastEndpoints** (API endpoint framework)
-- **FastEndpoints.Swagger** (OpenAPI/Swagger integration)
-- **Microsoft.AspNetCore.OpenApi** (OpenAPI support)
-- **Entity Framework Core** (Data access)
-- **Microsoft.EntityFrameworkCore.SqlServer** (SQL Server provider)
-- **Ardalis.GuardClauses** (Guard clauses for validation)
-- **Ardalis.Specification** (Repository pattern/specification)
+### Development
+- **Devevelopment Containers** (Development environment)
+- **.NET Aspire** (Orchestration, service discovery, migrations)
+- **OpenTelemetry** (Tracing, metrics)
+- **Docker** (Containerization)
+- **GitHub Security** (CodeQL, Dependabot)
+- **GitHub Actions** (CI/CD)
+- **GitHub Copilot** (Code generation)
+- **EditorConfig** (Code style consistency)
+
+### Domain
+- **.NET 9** (C# 13)
 - **FluentValidation** (Validation)
-- **MediatR** (CQRS/Mediator pattern)
-- **Microsoft.Identity.Web** (Authentication)
+- **Ardalis.GuardClauses** (Guard clauses for validation)
+
+### Web API
+- **ASP.NET Core** (Web API)
+- **Fast Endpoints** (API endpoint framework)
+- **OpenApi** (API documentation)
+
+### Infrastructure
+- **Entity Framework Core** (Data access)
+- **Ardalis.Specification** (Repository pattern/specification)
+- **Microsoft.EntityFrameworkCore.SqlServer** (SQL Server provider)
 - **Microsoft.Extensions.Caching.Hybrid** (Hybrid caching)
 - **Microsoft.Extensions.Caching.StackExchangeRedis** (Redis caching)
 - **Azure.Identity** (Azure authentication)
-- **OpenTelemetry** (Tracing, metrics)
-- **Testcontainers** (Integration testing with containers)
+- **Microsoft.Identity.Web** (Authentication)
+- **MediatR** (CQRS/Mediator pattern)
+
+### Testing
 - **xUnit** (Unit testing)
-- **Shouldly** (Assertions)
 - **Moq** (Mocking)
+- **Shouldly** (Assertions)
+- **Testcontainers** (Infrastructure testing with containers)
 - **NetArchTest.Rules** (Architecture tests)
-- **Microsoft.NET.Test.Sdk** (Test runner)
-- **Aspire** (Service defaults, migration, resilience)
