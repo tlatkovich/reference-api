@@ -11,12 +11,14 @@ A Web API solution for reference.
 - Request-Endpoint-Response Pattern (REPR): Structures each API endpoint with a request, endpoint, and response component.
 - Vertical Slice Architecture: Encapsulates each API endpoint in its own folder, containing all related files (request, endpoint, validation, mapping, response).
 - .NET Aspire: Enables running and connecting multi-project applications, container resources, and dependencies for local development.
-- Development Containers: Provides a fully featured, pre-configured Docker environment for development.
+- Development Containers: Provides a fully featured, pre-configured Docker environment for .NET/SQL development.
 - Asynchronous Programming: Utilizes async/await, Task-based APIs, and supports cancellation.
 - Immutability: Implements record structs for immutable data transfer objects (DTOs).
 - Global Usings: Reduces and simplifies using statements.
 - File-Scoped Namespaces: Promotes a cleaner code structure.
 - Value Objects: Encapsulates domain data without identity or behavior.
+- Guards Clauses: Validates method parameters and properties.
+- Specification Pattern: Implements the repository pattern with specifications for querying data.
 - Caching: Combines in-memory and Redis caching for optimal performance.
 - Eventing and Messaging: Employs MediatR for domain and integration events.
 - Security: Ensures input validation and JWT authentication.

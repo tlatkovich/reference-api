@@ -11,7 +11,7 @@ GO
 BEGIN TRANSACTION;
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20250430141910_1'
+    WHERE [MigrationId] = N'20250513174354_1'
 )
 BEGIN
     CREATE TABLE [Equipment] (
@@ -33,7 +33,7 @@ END;
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20250430141910_1'
+    WHERE [MigrationId] = N'20250513174354_1'
 )
 BEGIN
     CREATE TABLE [Attachments] (
@@ -49,7 +49,7 @@ END;
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20250430141910_1'
+    WHERE [MigrationId] = N'20250513174354_1'
 )
 BEGIN
     CREATE INDEX [IX_Attachments_EquipmentId] ON [Attachments] ([EquipmentId]);
@@ -57,11 +57,11 @@ END;
 
 IF NOT EXISTS (
     SELECT * FROM [__EFMigrationsHistory]
-    WHERE [MigrationId] = N'20250430141910_1'
+    WHERE [MigrationId] = N'20250513174354_1'
 )
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20250430141910_1', N'9.0.3');
+    VALUES (N'20250513174354_1', N'9.0.3');
 END;
 
 COMMIT;
