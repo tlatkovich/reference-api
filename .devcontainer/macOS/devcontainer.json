@@ -13,7 +13,6 @@
         "vscode": {
             "extensions": [
                 "ms-azuretools.azure-dev",
-                "ms-azuretools.vscode-bicep",
                 "ms-azuretools.vscode-containers",
                 "ms-dotnettools.csdevkit",
                 "ms-dotnettools.csharp",
