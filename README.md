@@ -68,3 +68,33 @@ A Web API solution for reference.
 - **Shouldly** (Assertions)
 - **Testcontainers** (Infrastructure testing with containers)
 - **NetArchTest.Rules** (Architecture tests)
+
+## Development Containers
+
+This solution includes a fully configured [Development Container](https://containers.dev/) for a consistent and productive development environment. The dev container leverages Docker and VS Code Dev Containers to provide all necessary tools and dependencies for .NET 9 and SQL Server development.
+
+**Key Features:**
+- **Base Image:** Uses `mcr.microsoft.com/devcontainers/dotnet:9.0-bookworm` for .NET 9.
+- **Pre-installed Features:**
+  - Docker-in-Docker (for running containers inside the dev container)
+  - PowerShell
+  - Azure CLI
+- **VS Code Extensions:** Automatically installs recommended extensions for .NET, Azure, Docker, GitHub Copilot, GitHub Actions, EditorConfig, and more.
+- **Automated Setup Commands:**
+  - Updates and installs .NET workloads and tools (including Aspire and Entity Framework Core tools)
+  - Restores NuGet packages and pulls the latest SQL Server container image
+  - Trusts HTTPS development certificates
+- **Volume Mounts:**
+  - Mounts Azure and .NET user secrets directories for secure local development
+- **Environment Variables:**
+  - Configures `DOTNET_USER_SECRETS` for secret management
+
+**Getting Started:**
+1. Open the repo in VS Code.
+2. When prompted, select the appropriate dev container configuration for your platform:
+   - **macOS/Linux:** Choose `.devcontainer/macOS/devcontainer.json`
+   - **Windows:** Choose `.devcontainer/Windows/devcontainer.json`
+3. The container will build and initialize automatically, installing all dependencies and extensions.
+4. You can now build, run, and debug the solution in a consistent, isolated environment.
+
+For more details, see the `.devcontainer` folder and configuration files for both macOS and Windows setups.
