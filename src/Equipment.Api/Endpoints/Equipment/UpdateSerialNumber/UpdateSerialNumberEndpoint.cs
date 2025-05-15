@@ -38,8 +38,13 @@ public class UpdateSerialNumberEndpoint(
 
         await _equipmentRepository.UpdateAsync(equipment, cancellationToken);
 
-        await _cache.RemoveAsync(cacheKey, cancellationToken);
-        await _cache.RemoveByTagAsync(cacheTags, cancellationToken);
+        var equipmentResponse = equipment.ToUpdateSerialNumberResponse();
+        await _cache.SetAsync(
+            cacheKey,
+            equipmentResponse,
+            tags: cacheTags,
+            cancellationToken: cancellationToken
+        );
 
         await SendNoContentAsync(cancellationToken);
     }

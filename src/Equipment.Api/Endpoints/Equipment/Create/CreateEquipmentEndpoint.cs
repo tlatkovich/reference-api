@@ -22,6 +22,7 @@ public class CreateEquipmentEndpoint(
     public override async Task HandleAsync(CreateEquipmentRequest createEquipmentRequest, CancellationToken cancellationToken)
     {
         var equipment = createEquipmentRequest.ToEquipment();
+        var cacheKey = $"Equipment:{equipment.Id.Value}";
         var cacheTags = new[] { "EquipmentAggregate" };
 
         var getEquipmentSpec = new GetEquipmentByIdSpec(equipment.Id, false);
@@ -37,8 +38,12 @@ public class CreateEquipmentEndpoint(
         await _equipmentRepository.AddAsync(equipment, cancellationToken);
 
         var equipmentResponse = equipment.ToCreateEquipmentResponse();
-
-        await _cache.RemoveByTagAsync(cacheTags, cancellationToken);
+        await _cache.SetAsync(
+            cacheKey,
+            equipmentResponse,
+            tags: cacheTags,
+            cancellationToken: cancellationToken
+        );
 
         await SendCreatedAtAsync<GetEquipmentEndpoint>(new { Id = equipment.Id.Value }, equipmentResponse, generateAbsoluteUrl: true, cancellation: cancellationToken);
     }

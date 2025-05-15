@@ -23,7 +23,6 @@ public class DeleteEquipmentEndpoint(
     {
         var equipmentId = new EquipmentId(deleteEquipmentRequest.Id);
         var cacheKey = $"Equipment:{equipmentId.Value}";
-        var cacheTags = new[] { "EquipmentAggregate" };
 
         var getEquipmentSpec = new GetEquipmentByIdSpec(equipmentId, false);
 
@@ -37,7 +36,6 @@ public class DeleteEquipmentEndpoint(
         await _equipmentRepository.DeleteAsync(equipment, cancellationToken);
 
         await _cache.RemoveAsync(cacheKey, cancellationToken);
-        await _cache.RemoveByTagAsync(cacheTags, cancellationToken);
 
         await SendNoContentAsync(cancellationToken);
     }
