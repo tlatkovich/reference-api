@@ -22,24 +22,11 @@ public class GetAllEquipmentEndpoint(
 
     public override async Task HandleAsync(GetAllEquipmentRequest getAllEquipmentRequest, CancellationToken cancellationToken)
     {
-        var cacheKey = $"Equipment:GetAll";
-        var cacheTags = new[] { "EquipmentAggregate" };
+        var getAllEquipmentSpec = new GetAllEquipmentSpec();
 
-        var equipmentResponse = await _cache.GetOrCreateAsync(
-            cacheKey,
-            async (cancellationToken) =>
-            {
-                var getAllEquipmentSpec = new GetAllEquipmentSpec();
+        var equipment = await _equipmentRepository.ListAsync(getAllEquipmentSpec, cancellationToken);
 
-                _logger.LogInformation("Fetching all equipment from the repository");
-
-                var equipment = await _equipmentRepository.ListAsync(getAllEquipmentSpec, cancellationToken);
-
-                return equipment.ToGetAllEquipmentResponse();
-            },
-            tags: cacheTags,
-            cancellationToken: cancellationToken
-        );
+        var equipmentResponse = equipment.ToGetAllEquipmentResponse();
 
         await SendOkAsync(equipmentResponse, cancellation: cancellationToken);
     }

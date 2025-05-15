@@ -23,6 +23,7 @@ public class AddAttachmentEndpoint(
     {
         var equipmentId = new EquipmentId(addAttachmentRequest.Id);
         var cacheKey = $"Equipment:{equipmentId.Value}";
+        var cacheTags = new[] { "EquipmentAggregate" };
 
         var getEquipmentSpec = new GetEquipmentByIdSpec(equipmentId);
 
@@ -58,7 +59,13 @@ public class AddAttachmentEndpoint(
 
         await _equipmentRepository.UpdateAsync(equipment, cancellationToken);
 
-        await _cache.RemoveAsync(cacheKey, cancellationToken);
+        var equipmentResponse = equipment.ToAddAttachmentResponse();
+        await _cache.SetAsync(
+            cacheKey,
+            equipmentResponse,
+            tags: cacheTags,
+            cancellationToken: cancellationToken
+        );
 
         await SendNoContentAsync(cancellationToken);
     }

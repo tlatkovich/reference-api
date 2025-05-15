@@ -1,10 +1,10 @@
-namespace Equipment.Api.Endpoints.Equipment.AddAttachment;
+namespace Equipment.Api.Endpoints.Equipment.UpdateSerialNumber;
 
-public static class AddAttachmentMappings
+public static class UpdateSerialNumberMappings
 {
-    public static AddAttachmentResponse ToAddAttachmentResponse(this Core.Domain.EquipmentAggregate.Equipment equipment)
+    public static UpdateSerialNumberResponse ToUpdateSerialNumberResponse(this Core.Domain.EquipmentAggregate.Equipment equipment)
     {
-        var equipmentResponse = new AddAttachmentResponse
+        var equipmentResponse = new UpdateSerialNumberResponse
         {
             Id = equipment.Id.Value,
             EquipmentNumber = equipment.EquipmentNumber.Value,
@@ -17,7 +17,7 @@ public static class AddAttachmentMappings
 
         foreach (var attachment in equipment.Attachments)
         {
-            var attachmentResponse = new AddAttachmentAttachmentResponse
+            var attachmentResponse = new UpdateSerialNumberAttachmentResponse
             {
                 Id = attachment.Id.Value,
                 EquipmentNumber = attachment.EquipmentNumber.Value,
