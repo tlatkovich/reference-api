@@ -10,10 +10,14 @@ builder.AddProject<Projects.Equipment_MigrationService>("migrations")
 
 var redis = builder.AddRedis("redis");
 
-builder.AddProject<Projects.Equipment_Api>("equipmentApi")
+var equipmentApi = builder.AddProject<Projects.Equipment_Api>("equipmentApi")
     .WithExternalHttpEndpoints()
     // .WithHttpHealthCheck("health")
     .WithReference(equipmentDb).WaitFor(equipmentDb)
     .WithReference(redis).WithParentRelationship(redis).WaitFor(redis);
+
+builder.AddProject<Projects.Equipment_WebApp>("equipmentWebApp")
+    .WithExternalHttpEndpoints()
+    .WithReference(equipmentApi).WaitFor(equipmentApi);
 
 builder.Build().Run();

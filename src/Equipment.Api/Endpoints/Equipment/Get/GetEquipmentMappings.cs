@@ -17,7 +17,7 @@ public static class GetEquipmentMappings
 
         foreach (var attachment in equipment.Attachments)
         {
-            var attachmentResponse = new EquipmentAttachmentResponse
+            var attachmentResponse = new GetEquipmentAttachmentResponse
             {
                 Id = attachment.Id.Value,
                 EquipmentNumber = attachment.EquipmentNumber.Value,

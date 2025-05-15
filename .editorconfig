@@ -9,18 +9,19 @@ insert_final_newline = true
 indent_style = space
 trim_trailing_whitespace = true
 
-# YAML files (.yml and .yaml)
-[*.{yml,yaml}]
-indent_size = 2
-
-# XML and related files (.xml, .xsd, .xslt, .wsdl)
+# XML and related files
 [*.{xml,xsd,xslt,wsdl}]
-indent_size = 2
+indent_size = 4
 
-# JSON files (.json and .jsonc)
+# JSON files
 [*.{json,jsonc}]
 indent_size = 4
 
+# YAML files - indentation matters
+[*.{yml,yaml}]
+indent_size = 2
+
+# Markdown files - indentation matters
 [*.md]
 indent_size = 2
 trim_trailing_whitespace = false

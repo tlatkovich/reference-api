@@ -7,21 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.AppHost", "src\Aspir
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspire.ServiceDefaults", "src\Aspire.ServiceDefaults\Aspire.ServiceDefaults.csproj", "{43DD0146-3BFF-49E6-B3B5-6480D1B7EEAA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.WebApp", "src\Equipment.WebApp\Equipment.WebApp.csproj", "{8E907F64-335E-4888-B6C0-D37AE7179AFB}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.Api", "src\Equipment.Api\Equipment.Api.csproj", "{92F02C50-1B7B-4CF4-8841-A9BA0D25B3A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipment.Core", "src\Equipment.Core\Equipment.Core.csproj", "{F064FC6B-E07D-41C5-9CBF-2782EEF7823C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.Core", "src\Equipment.Core\Equipment.Core.csproj", "{F064FC6B-E07D-41C5-9CBF-2782EEF7823C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipment.Infrastructure", "src\Equipment.Infrastructure\Equipment.Infrastructure.csproj", "{116C7DFC-E483-47E4-80EA-13667FBA7AD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.Infrastructure", "src\Equipment.Infrastructure\Equipment.Infrastructure.csproj", "{116C7DFC-E483-47E4-80EA-13667FBA7AD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipment.MigrationService", "src\Equipment.MigrationService\Equipment.MigrationService.csproj", "{D276AA68-DC1C-4DA1-87E9-2E726EA9C2B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.MigrationService", "src\Equipment.MigrationService\Equipment.MigrationService.csproj", "{D276AA68-DC1C-4DA1-87E9-2E726EA9C2B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipment.CoreTests", "tests\Equipment.CoreTests\Equipment.CoreTests.csproj", "{A487E958-1EE6-40D2-8404-FD38EF0641CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.CoreTests", "tests\Equipment.CoreTests\Equipment.CoreTests.csproj", "{A487E958-1EE6-40D2-8404-FD38EF0641CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipment.InfrastructureTests", "tests\Equipment.InfrastructureTests\Equipment.InfrastructureTests.csproj", "{6CB6F526-FA22-4488-A3D1-4857ED3D3316}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.InfrastructureTests", "tests\Equipment.InfrastructureTests\Equipment.InfrastructureTests.csproj", "{6CB6F526-FA22-4488-A3D1-4857ED3D3316}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipment.ApiTests", "tests\Equipment.ApiTests\Equipment.ApiTests.csproj", "{547845EA-A8BE-4BB9-87D6-2DD9E14C36D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.ApiTests", "tests\Equipment.ApiTests\Equipment.ApiTests.csproj", "{547845EA-A8BE-4BB9-87D6-2DD9E14C36D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equipment.ArchitectureTests", "tests\Equipment.ArchitectureTests\Equipment.ArchitectureTests.csproj", "{D3063AC0-9FF3-4A81-A49F-F49A4221CCF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Equipment.ArchitectureTests", "tests\Equipment.ArchitectureTests\Equipment.ArchitectureTests.csproj", "{D3063AC0-9FF3-4A81-A49F-F49A4221CCF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,18 +107,6 @@ Global
 		{D276AA68-DC1C-4DA1-87E9-2E726EA9C2B6}.Release|x64.Build.0 = Release|Any CPU
 		{D276AA68-DC1C-4DA1-87E9-2E726EA9C2B6}.Release|x86.ActiveCfg = Release|Any CPU
 		{D276AA68-DC1C-4DA1-87E9-2E726EA9C2B6}.Release|x86.Build.0 = Release|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Debug|x64.Build.0 = Debug|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Debug|x86.Build.0 = Debug|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Release|x64.ActiveCfg = Release|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Release|x64.Build.0 = Release|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Release|x86.ActiveCfg = Release|Any CPU
-		{9E45B0E9-D424-4FE5-8E03-92EFFCDDADDE}.Release|x86.Build.0 = Release|Any CPU
 		{A487E958-1EE6-40D2-8404-FD38EF0641CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A487E958-1EE6-40D2-8404-FD38EF0641CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A487E958-1EE6-40D2-8404-FD38EF0641CC}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -165,6 +155,18 @@ Global
 		{D3063AC0-9FF3-4A81-A49F-F49A4221CCF5}.Release|x64.Build.0 = Release|Any CPU
 		{D3063AC0-9FF3-4A81-A49F-F49A4221CCF5}.Release|x86.ActiveCfg = Release|Any CPU
 		{D3063AC0-9FF3-4A81-A49F-F49A4221CCF5}.Release|x86.Build.0 = Release|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Debug|x64.Build.0 = Debug|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Debug|x86.Build.0 = Debug|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Release|x64.ActiveCfg = Release|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Release|x64.Build.0 = Release|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Release|x86.ActiveCfg = Release|Any CPU
+		{8E907F64-335E-4888-B6C0-D37AE7179AFB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

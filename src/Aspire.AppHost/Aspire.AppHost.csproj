@@ -12,6 +12,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Equipment.Api\Equipment.Api.csproj" />
+        <ProjectReference Include="..\Equipment.WebApp\Equipment.WebApp.csproj" />
         <ProjectReference Include="..\Equipment.MigrationService\Equipment.MigrationService.csproj" />
     </ItemGroup>
 

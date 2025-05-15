@@ -1,20 +1,20 @@
 name: Scan Code with CodeQL
 
 on:
-    push:
+  push:
       branches:
-        - "main"
-        - "v*"
+      - "main"
+      - "v*"
 
-    pull_request:
+  pull_request:
       branches:
-        - "main"
-        - "v*"
+      - "main"
+      - "v*"
 
-    schedule:
-        - cron: '0 0 * * 0' # Runs every Sunday at 00:00 UTC
+  schedule:
+      - cron: '0 0 * * 0' # Runs every Sunday at 00:00 UTC
 
-    workflow_dispatch: # manual trigger
+  workflow_dispatch: # manual trigger
 
 env:
   DOTNET_VERSION: 9.x
