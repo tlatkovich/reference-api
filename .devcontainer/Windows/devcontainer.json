@@ -6,7 +6,7 @@
         "ghcr.io/devcontainers/features/powershell:1": {},
         "ghcr.io/devcontainers/features/azure-cli:1": {}
     },
-    "onCreateCommand": "sudo dotnet workload update && sudo dotnet workload install aspire && dotnet tool install --global dotnet-ef && sudo dotnet workload list && sudo dotnet new install Aspire.ProjectTemplates::9.2.0 --force",
+    "onCreateCommand": "dotnet tool install --global dotnet-ef && dotnet tool install --global aspire.cli --prerelease && sudo dotnet new install Aspire.ProjectTemplates::9.3.0 --force",
     "postCreateCommand": "dotnet restore && docker pull mcr.microsoft.com/mssql/server:2022-latest",
     "postStartCommand": "dotnet dev-certs https --trust",
     "customizations": {
