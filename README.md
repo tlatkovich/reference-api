@@ -19,7 +19,7 @@ A Web API solution for reference.
 - Value Objects: Encapsulates domain data without identity or behavior.
 - Guards Clauses: Validates method parameters and properties.
 - Specification Pattern: Implements the repository pattern with specifications for querying data.
-- Caching: Combines in-memory and Redis caching for optimal performance.
+- Caching: Implements a write-through caching strategy, combining in-memory and Redis caches to ensure data consistency and optimal performance.
 - Eventing and Messaging: Employs MediatR for domain and integration events.
 - Security: Ensures input validation and JWT authentication.
 - Testing: Automates testing for domain, infrastructure, and API layers as well as architecture principles.

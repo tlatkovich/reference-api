@@ -12,9 +12,9 @@ var redis = builder.AddRedis("redis");
 
 var equipmentApi = builder.AddProject<Projects.Equipment_Api>("equipmentApi")
     .WithExternalHttpEndpoints()
-    // .WithHttpHealthCheck("health")
+    .WithUrlForEndpoint("http", url => url.Url = "/swagger")
     .WithReference(equipmentDb).WaitFor(equipmentDb)
-    .WithReference(redis).WithParentRelationship(redis).WaitFor(redis);
+    .WithReference(redis).WaitFor(redis);
 
 builder.AddProject<Projects.Equipment_WebApp>("equipmentWebApp")
     .WithExternalHttpEndpoints()
